@@ -10,7 +10,7 @@
 
 任意のブランチに切り替えて「+」を押す
 
-<img width="500" alt="#" src="https://github.com/hamee-co-jp/intern-training/assets/51414950/3473c0e0-4eed-48b0-9a88-dd6bef893677">
+<img width="400" alt="スクリーンショット 2023-10-12 14 42 52" src="https://github.com/hamee-co-jp/engineer-internship-training/assets/51414950/83d0915f-146d-4f87-986a-539cce7e6864">
 
 |ポート|アプリ|説明|
 |-|-|-|
