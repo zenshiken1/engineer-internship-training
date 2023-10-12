@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 class Favorite
 {
-    private const DSN = 'mysql:host=intern-training_mysql_1;dbname=mydatabase;';
+    private const DSN = 'mysql:host=engineer-internship-training_mysql_1;dbname=mydatabase;';
     private const DB_USER = 'myuser';
     private const DB_PASS = 'mypassword';
 
