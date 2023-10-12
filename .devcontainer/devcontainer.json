@@ -1,0 +1,26 @@
+{
+  "name": "PHP Sample",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "php",
+  "workspaceFolder": "/var/www",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+	    },
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "felixfbecker.php-debug",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "neilbrayfield.php-docblocker",
+        "streetsidesoftware.code-spell-checker"
+      ]
+    }
+  },
+  "forwardPorts": [8000, 3306, 3000],
+  "shutdownAction": "stopCompose"
+}
+

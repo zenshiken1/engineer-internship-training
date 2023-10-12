@@ -1,0 +1,59 @@
+/* 追加するCSS */
+
+
+
+/* 投稿に関するCSS */
+.post {
+    display: flex;
+}
+
+.post-icon {
+    width: 120px;
+}
+
+.post-image {
+    width: 100%;
+}
+
+.post-name {
+    font-weight: bold;
+}
+
+.post-text {
+    width: 100%;
+}
+
+.post-info {
+    position: relative;
+    width: 100%;
+}
+
+.post-action {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+/* inputのデフォルトスタイルをリセット */
+.post-not-edit-input {
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* textareaのデフォルトスタイルをリセット */
+.post-not-edit-textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    resize: none;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+}

@@ -1,0 +1,4 @@
+ PMA_token |s:32:"45243e4f6a4724306276426c55772f29"; HMAC_secret |s:16:"VG=J_Ti0:F01d7T1";browser_access_time|a:1:{s:7:"default";i:1694507654;}Import_message|a:1:{s:7:"message";s:423:"<div class="alert alert-danger" role="alert"><h1>エラー</h1><p>
+    <strong>MySQL のメッセージ: </strong><a href="./url.php?url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fserver-error-reference.html" target="mysql_doc"><img src="themes/dot.gif" title="ドキュメント" alt="ドキュメント" class="icon ic_b_help"></a>
+</p>
+<code>接続できません。設定が無効です。</code><br></div>";}errors|a:0:{}

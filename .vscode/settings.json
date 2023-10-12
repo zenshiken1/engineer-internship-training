@@ -1,0 +1,6 @@
+{
+    "editor.renderWhitespace": "boundary",
+    "workbench.colorTheme": "Default Dark Modern",
+    "gitlens.showWelcomeOnInstall": false,
+    "workbench.editor.enablePreview": false
+}
