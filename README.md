@@ -47,7 +47,6 @@ docker-compose down --volume; docker-compose up -d --build
 
 # 参考資料
 
-- [講義資料]() @TODO
 - [PHP: PHP マニュアル - Manual](https://www.php.net/manual/ja/index.php)
 - ブラウザでPHPのコードを実行できるツール | 3v4l(講義で基礎的なPHPの文法を学ぶのに使用します)
     - [string](https://3v4l.org/pkuIY)
