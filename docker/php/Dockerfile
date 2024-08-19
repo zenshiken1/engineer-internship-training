@@ -15,7 +15,9 @@ RUN echo "alias ll='ls -al --color'" >> ~/.bashrc
 
 # Set the document root to /var/www/app and update permissions
 RUN cat ./custom-apache2.conf >> /etc/apache2/sites-available/000-default.conf
+RUN touch /usr/local/etc/php/php.ini \
+    && echo "[Date]" >> /usr/local/etc/php/php.ini \
+    && echo "date.timezone = Asia/Tokyo" >> /usr/local/etc/php/php.ini
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
