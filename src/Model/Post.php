@@ -32,6 +32,9 @@ class Post
     {
         // 未実装
         // 必須課題3:投稿更新機能
+        $pdo = $this->dbConnect();
+        $query = "<ここにクエリを入力します>";
+        $pdo->query($query);
     }
 
     /**
