@@ -19,7 +19,10 @@
 
 <body>
     <div class="header">
-        <span>N（ベータバージョン）</span>
+        <a href="#" onclick="scrollToTop()" class="logo-link">
+            <img src="/imgs/cat.png" alt="Logo" class="logo-image">
+            <span class="logo-text">N（ベータバージョン）</span>
+        </a>
     </div>
 
     <br>
@@ -64,7 +67,7 @@
                     <?= ($sort === 'updated_at' && $order === 'ASC') ? '↓ 更新順（降順）' : '↑ 更新順（昇順）' ?>
                 </a>
                 <a href="/?sort=name&order=<?= $nextNameOrder ?>" class="btn btn-outline-success">
-                    <?= ($sort === 'message' && $order === 'ASC') ? '↓ 文章のアルファベット順（降順）' : '↑ 文章のアルファベット順（昇順）' ?>
+                    <?= ($sort === 'message' && $order === 'ASC') ? '↓ 文章のアルファベット順（降順）' : '↑ 更新順（昇順）' ?>
                 </a>
             </div>
                 <?php if ($this->get('posts')) : ?>

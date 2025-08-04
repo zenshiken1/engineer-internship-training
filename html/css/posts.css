@@ -1,10 +1,34 @@
 /* ヘッダーのスタイル */
 .header {
-    background-color: black;
-    color: white;
-    padding: 10px;
-    font-size: 18px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-image {
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
 body {
     background-color: #fffde8; /* 淡い黄色 */
 }
