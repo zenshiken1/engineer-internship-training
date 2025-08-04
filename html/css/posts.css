@@ -1,10 +1,53 @@
-/* 追加するCSS */
+/* ヘッダーのスタイル */
+.header {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+body {
+    background-color: #fffde8; /* 淡い黄色 */
+}
 
+/* 投稿フォームのスタイル */
+.post-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
 
+.post-form-name,
+.post-form-message {
+    margin-bottom: 16px;
+}
+
+.post-form-name-input,
+.post-form-message-text {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.post-form-submit-button {
+    background-color: black;
+    color: white;
+    padding: 10px 24px;
+    font-size: 16px;
+    width: 200px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
 
 /* 投稿に関するCSS */
 .post {
     display: flex;
+    border: 1px dotted #a52a2a;
+    margin-top: 16px;
+    padding: 8px;
+    border-radius: 6px;
 }
 
 .post-icon {
@@ -15,16 +58,17 @@
     width: 100%;
 }
 
-.post-name {
-    font-weight: bold;
-}
-
-.post-text {
+.post-info {
+    position: relative;
     width: 100%;
 }
 
-.post-info {
-    position: relative;
+.post-name {
+    font-weight: bold;
+    width: 100%;
+}
+
+.post-text {
     width: 100%;
 }
 
@@ -34,9 +78,9 @@
     right: 0px;
 }
 
-/* inputのデフォルトスタイルをリセット */
+/* 編集不可のinputリセット */
 .post-not-edit-input {
-    padding: 0;
+    padding: 10;
     background: none;
     border: none;
     border-radius: 0;
@@ -46,7 +90,7 @@
     appearance: none;
 }
 
-/* textareaのデフォルトスタイルをリセット */
+/* 編集不可のtextareaリセット */
 .post-not-edit-textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
