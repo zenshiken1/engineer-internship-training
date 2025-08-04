@@ -55,10 +55,16 @@
 
             <div style="text-align: right; margin-bottom: 10px;">
                 <a href="/?sort=created_at&order=<?= $nextCreatedOrder ?>" class="btn btn-outline-primary">
-                    <?= ($sort === 'created_at' && $order === 'ASC') ? '↓ 新しい順に並び替え' : '↑ 古い順に並び替え' ?>
+                    <?= ($sort === 'created_at' && $order === 'ASC') ? '↓ 投稿時間順' : '↑ 投稿時間順' ?>
                 </a>
                 <a href="/?sort=name&order=<?= $nextNameOrder ?>" class="btn btn-outline-success">
                     <?= ($sort === 'name' && $order === 'ASC') ? '↓ 名前（降順）' : '↑ 名前（昇順）' ?>
+                </a>
+                <a href="/?sort=name&order=<?= $nextNameOrder ?>" class="btn btn-outline-success">
+                    <?= ($sort === 'updated_at' && $order === 'ASC') ? '↓ 更新順（降順）' : '↑ 更新順（昇順）' ?>
+                </a>
+                <a href="/?sort=name&order=<?= $nextNameOrder ?>" class="btn btn-outline-success">
+                    <?= ($sort === 'message' && $order === 'ASC') ? '↓ 文章のアルファベット順（降順）' : '↑ 文章のアルファベット順（昇順）' ?>
                 </a>
             </div>
                 <?php if ($this->get('posts')) : ?>
@@ -70,8 +76,9 @@
                                 <img src="/imgs/egg_purple.png" class="post-image" alt="egg_icon">
                             </div>
                             <div class="post-info" data-id="<?=$post['id']?>">
-                                <input type="text" class="post-name post-not-edit-input" value="<?=$post['name']?>" readonly>
+                                名前<input type="text" class="post-name post-not-edit-input" value="<?=$post['name']?>" readonly>
                                 <input type="text" class="post-time post-not-edit-input" value="<?=$post['created_at']?>" readonly>
+                                <input type="text" class="post-time post-not-edit-input" value="<?=$post['updated_at']?>" readonly>
                                 <br>
                                 <textarea class="post-text post-not-edit-textarea" readonly><?=$post['message']?></textarea>
 

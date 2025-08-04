@@ -57,24 +57,23 @@ class Post
     {
         $pdo = $this->dbConnect();
 
-        //デフォルト
-        if ($sort !== 'name' && $sort !== 'created_at') {
-            $sort = 'created_at';
-        }
-
-        if ($order !== 'ASC' && $order !== 'DESC') {
-            $order = 'DESC';
-        }
-
-        // 名前のとき　created_at を第2条件に
+        // 時間以外の時　時間を第2条件に、時間の時はidを第2条件に
         if ($sort === 'name') {
-            $sql = "SELECT id, name, message, created_at
+            $sql = "SELECT id, name, message, created_at,updated_at
                     FROM posts
                     ORDER BY name $order, created_at DESC";
-        } else {
-            $sql = "SELECT id, name, message, created_at
+        } if ($sort === 'updated_at') {
+            $sql = "SELECT id, name, message, created_at,updated_at
                     FROM posts
-                    ORDER BY created_at $order";
+                    ORDER BY updated_at $order, created_at DESC";
+        } if ($sort === 'message') {
+            $sql = "SELECT id, name, message, created_at,updated_at
+                    FROM posts
+                    ORDER BY message $order, created_at DESC";
+        } else {
+            $sql = "SELECT id, name, message, created_at,updated_at
+                    FROM posts
+                    ORDER BY created_at $order,id DESC";
         }
 
         $statement = $pdo->query($sql);
