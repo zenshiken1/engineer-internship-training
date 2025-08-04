@@ -68,6 +68,10 @@ body {
     width: 100%;
 }
 
+.post-name {
+    font-weight: bold;
+    width: 100%;
+}
 .post-text {
     width: 100%;
 }

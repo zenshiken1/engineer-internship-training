@@ -53,12 +53,12 @@ class Post
      *
      * @return array{name: string, message: string} 取得したデータ
      */
-    public function fetch(): array
+    public function fetch(string $order = 'DESC'): array
     {
         $pdo = $this->dbConnect();
-        $sql = "SELECT `id`, `name`, `message` 
+        $sql = "SELECT `id`, `name`, `message`,`created_at`
             FROM posts 
-            ORDER BY `id` DESC";
+            ORDER BY `created_at` $order,'id' DESC";
         $statement = $pdo->query($sql);
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }

@@ -44,16 +44,28 @@
             <hr>
             <!-- 投稿一覧 -->
             <div class="posts">
+                <div class="d-flex justify-content-end mb-2">
+                    <?php
+                    $order = $this->get('order') ?? 'DESC';
+                    $nextOrder = $order === 'ASC' ? 'DESC' : 'ASC';
+                    $buttonLabel = $order === 'ASC' ? '↓ 新しい順に並び替え' : '↑ 古い順に並び替え';
+                    ?>
+                    <a href="/?order=<?=$nextOrder?>" class="btn btn-outline-primary"><?=$buttonLabel?></a>
+                </div>
                 <?php if ($this->get('posts')) : ?>
                     <?php foreach ($this->get('posts') as $post) : ?>
                         <!-- 投稿カード -->
+
                         <div class="post">
                             <div class="post-icon">
                                 <img src="/imgs/egg_purple.png" class="post-image" alt="egg_icon">
                             </div>
                             <div class="post-info" data-id="<?=$post['id']?>">
-                                <input type="text" class="post-name post-not-edit-input" value=<?=$post['name']?> readonly><br>
+                                <input type="text" class="post-name post-not-edit-input" value="<?=$post['name']?>" readonly>
+                                <input type="text" class="post-time post-not-edit-input" value="<?=$post['created_at']?>" readonly>
+                                <br>
                                 <textarea class="post-text post-not-edit-textarea" readonly><?=$post['message']?></textarea>
+
                                 <div class="post-action">
                                     <button type="button" class="post-action-btn edit-btn" onclick="editPost(this)">✒️編集</button>
                                     <button type="button" class="post-action-btn delete-btn" onclick="deletePost(this)">🗑削除</button>
