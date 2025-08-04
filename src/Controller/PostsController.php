@@ -22,16 +22,17 @@ class PostsController extends AppController
     {
         $pageName = 'HOME / N（ベータバージョン）';
         $this->assign('pageName', $pageName);
-        $order = strtoupper($this->request->getQuery('order') ?? 'DESC');
-        if (!in_array($order, ['ASC', 'DESC'])) {
-            $order = 'DESC';
-        }
 
-        $post = new Post();
-        $posts = $post->fetch($order);
-        $this->assign('posts', $posts);
-        $this->assign('order', $order);
+        $sort = $this->request->getQuery('sort') ?? 'created_at';
+        $order = strtoupper($this->request->getQuery('order') ?? 'DESC');
         
+        $post = new Post();
+        $posts = $post->fetch($sort, $order);
+
+        $this->assign('posts', $posts);
+        $this->assign('sort', $sort);
+        $this->assign('order', $order);
+
         $this->show('Posts/index.php');
 
         return;

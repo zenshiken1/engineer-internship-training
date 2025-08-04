@@ -44,14 +44,23 @@
             <hr>
             <!-- 投稿一覧 -->
             <div class="posts">
-                <div class="d-flex justify-content-end mb-2">
-                    <?php
-                    $order = $this->get('order') ?? 'DESC';
-                    $nextOrder = $order === 'ASC' ? 'DESC' : 'ASC';
-                    $buttonLabel = $order === 'ASC' ? '↓ 新しい順に並び替え' : '↑ 古い順に並び替え';
-                    ?>
-                    <a href="/?order=<?=$nextOrder?>" class="btn btn-outline-primary"><?=$buttonLabel?></a>
-                </div>
+            <?php
+            $sort = $this->get('sort') ?? 'created_at';
+            $order = $this->get('order') ?? 'DESC';
+
+            // 切り替え用
+            $nextCreatedOrder = ($sort === 'created_at' && $order === 'ASC') ? 'DESC' : 'ASC';
+            $nextNameOrder = ($sort === 'name' && $order === 'ASC') ? 'DESC' : 'ASC';
+            ?>
+
+            <div style="text-align: right; margin-bottom: 10px;">
+                <a href="/?sort=created_at&order=<?= $nextCreatedOrder ?>" class="btn btn-outline-primary">
+                    <?= ($sort === 'created_at' && $order === 'ASC') ? '↓ 新しい順に並び替え' : '↑ 古い順に並び替え' ?>
+                </a>
+                <a href="/?sort=name&order=<?= $nextNameOrder ?>" class="btn btn-outline-success">
+                    <?= ($sort === 'name' && $order === 'ASC') ? '↓ 名前（降順）' : '↑ 名前（昇順）' ?>
+                </a>
+            </div>
                 <?php if ($this->get('posts')) : ?>
                     <?php foreach ($this->get('posts') as $post) : ?>
                         <!-- 投稿カード -->

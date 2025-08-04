@@ -53,15 +53,34 @@ class Post
      *
      * @return array{name: string, message: string} 取得したデータ
      */
-    public function fetch(string $order = 'DESC'): array
+    public function fetch(string $sort = 'created_at', string $order = 'DESC'): array
     {
         $pdo = $this->dbConnect();
-        $sql = "SELECT `id`, `name`, `message`,`created_at`
-            FROM posts 
-            ORDER BY `created_at` $order,'id' DESC";
+
+        //デフォルト
+        if ($sort !== 'name' && $sort !== 'created_at') {
+            $sort = 'created_at';
+        }
+
+        if ($order !== 'ASC' && $order !== 'DESC') {
+            $order = 'DESC';
+        }
+
+        // 名前のとき　created_at を第2条件に
+        if ($sort === 'name') {
+            $sql = "SELECT id, name, message, created_at
+                    FROM posts
+                    ORDER BY name $order, created_at DESC";
+        } else {
+            $sql = "SELECT id, name, message, created_at
+                    FROM posts
+                    ORDER BY created_at $order";
+        }
+
         $statement = $pdo->query($sql);
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     /**
      * DBに接続したPDOを返却する
