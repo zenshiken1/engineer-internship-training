@@ -11,11 +11,14 @@ class Favorite
     /**
      * いいね情報を保存
      *
-     * @param string $postId 投稿ID
+     * @param int $id ID
      */
-    public function save(string $postId): void
+    public function save(int $id): void
     {
         // 未実装 応用課題:いいね機能
+        $pdo = $this->dbConnect();
+        $query = "UPDATE `posts` SET `favorite`=`favorite` + 1 WHERE id = $id;";
+        $pdo->query($query);
     }
 
     /**

@@ -62,19 +62,23 @@ class Post
 
         // 時間以外の時　時間を第2条件に、時間の時はidを第2条件に
         if ($sort === 'name') {
-            $sql = "SELECT id, name, message, created_at,updated_at
+            $sql = "SELECT id, name, message, created_at,updated_at,favorite
                     FROM posts
                     ORDER BY name $order, created_at DESC";
         } else if ($sort === 'updated_at') {
-            $sql = "SELECT id, name, message, created_at,updated_at
+            $sql = "SELECT id, name, message, created_at,updated_at,favorite
                     FROM posts
                     ORDER BY updated_at $order, created_at DESC";
         } else if ($sort === 'message') {
-            $sql = "SELECT id, name, message, created_at,updated_at
+            $sql = "SELECT id, name, message, created_at,updated_at,favorite
                     FROM posts
                     ORDER BY message $order, created_at DESC";
+        } else if ($sort === 'favorite') {
+            $sql = "SELECT id, name, message, created_at,updated_at,favorite
+                    FROM posts
+                    ORDER BY favorite $order, created_at DESC";
         } else {
-            $sql = "SELECT id, name, message, created_at,updated_at
+            $sql = "SELECT id, name, message, created_at,updated_at,favorite
                     FROM posts
                     ORDER BY created_at $order,id DESC";
         }

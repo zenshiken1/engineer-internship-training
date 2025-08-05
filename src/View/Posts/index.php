@@ -56,6 +56,7 @@
             $nextNameOrder = ($sort === 'name' && $order === 'ASC') ? 'DESC' : 'ASC';
             $nextUpdatedAtOrder = ($sort === 'updated_at' && $order === 'ASC') ? 'DESC' : 'ASC';
             $nextMessageOrder = ($sort === 'message' && $order === 'ASC') ? 'DESC' : 'ASC';
+            $nextGoodOrder = ($sort === 'favorite' && $order === 'ASC') ? 'DESC' : 'ASC';
             ?>
 
             <div style="text-align: right; margin-bottom: 10px;">
@@ -71,6 +72,9 @@
                 <a href="/?sort=message&order=<?= $nextMessageOrder ?>" class="btn btn-outline-success">
                     <?= ($sort === 'message' && $order === 'ASC') ? '↓ 文章のアルファベット順（降順）' : '↑ 文章のアルファベット順（昇順）' ?>
                 </a>
+                <a href="/?sort=favorite&order=<?= $nextGoodOrder ?>" class="btn btn-outline-primary">
+                    <?= ($sort === 'favorite' && $order === 'ASC') ? '↓ いいね数（降順）' : '↑ いいね数（昇順）' ?>
+                </a>
             </div>
                 <?php if ($this->get('posts')) : ?>
                     <?php foreach ($this->get('posts') as $post) : ?>
@@ -84,12 +88,14 @@
                                 <input type="text" class="post-name post-not-edit-input" value="<?=$post['name']?>" readonly>
                                 <div style="text-align: right; white-space: nowrap; font-size: 0.9em; color: gray;">
                                     <span>投稿：<?= $post['created_at'] ?></span>&nbsp;
-                                    <span>更新：<?= $post['updated_at'] ?></span>
+                                    <span>更新：<?= $post['updated_at'] ?></span>&nbsp;
+                                    <span>いいね：<span class="favorite-count"><?= $post['favorite'] ?></span></span>
                                 </div>
                                 <br>
                                 <textarea class="post-text post-not-edit-textarea" readonly><?=$post['message']?></textarea>
 
                                 <div class="post-action">
+                                    <button type="button" class="post-action-btn good-btn" onclick="goodPost(this)">👍いいね</button>
                                     <button type="button" class="post-action-btn edit-btn" onclick="editPost(this)">✒️編集</button>
                                     <button type="button" class="post-action-btn delete-btn" onclick="deletePost(this)">🗑削除</button>
                                 </div>

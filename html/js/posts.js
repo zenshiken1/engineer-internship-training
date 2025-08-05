@@ -35,6 +35,30 @@ const updatePost = (self) => {
     }
 }
 
+// Ajaxでいいねを追加する
+const goodPost = (self) => {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/Post/favorite');
+    xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+    // 更新後の投稿情報を取得
+    const post_object = self.parentNode.parentNode;
+    // AjaxでPost
+    xhr.send(`id=${post_object.dataset.id}`);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // alert(xhr.responseText);
+            // いいね数を更新
+            const favoriteCount = post_object.querySelector('.favorite-count');
+            // alert(favoriteCount);
+            let currentCount = parseInt(favoriteCount.textContent);
+            favoriteCount.textContent = currentCount + 1;
+        }
+    }
+}
+
+
+
 // Ajaxで投稿を削除する
 const deletePost = (self) => {
     var xhr = new XMLHttpRequest();

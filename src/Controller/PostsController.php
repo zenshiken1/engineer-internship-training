@@ -100,5 +100,10 @@ class PostsController extends AppController
     public function favorite(): void
     {
         // 未実装 応用課題:いいね機能
+        $id = (int)$this->request->getData('id');
+        $Favorite = new Favorite();
+        $Favorite->save($id);
+
+        // echo 'いいねしました。';
     }
 }
