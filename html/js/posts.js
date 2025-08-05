@@ -61,6 +61,9 @@ const goodPost = (self) => {
 
 // Ajaxで投稿を削除する
 const deletePost = (self) => {
+    if (!confirm('本当に削除しますか？')) {
+        return;
+    }
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/Post/delete');
     xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');

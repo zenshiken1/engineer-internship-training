@@ -34,10 +34,30 @@ body {
 }
 
 /* 投稿フォームのスタイル */
+
+.post-form-toggle-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.post-form-toggle-button {
+    background-color: orange;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
 .post-form {
+    margin-bottom: 10px;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
+    width: 100%;
 }
 
 .post-form-name,

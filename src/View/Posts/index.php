@@ -17,6 +17,18 @@
     <title><?= $this->get('pageName') ?></title>
 </head>
 
+<script>
+function togglePostForm() {
+    const formWrapper = document.getElementById('postFormWrapper');
+    if (formWrapper.style.display === 'none') {
+        formWrapper.style.display = 'block';
+    } else {
+        formWrapper.style.display = 'none';
+    }
+}
+</script>
+
+
 <body>
     <div class="header">
         <a href="#" onclick="scrollToTop()" class="logo-link">
@@ -28,22 +40,29 @@
     <br>
 
     <div class="content">
-        <div>
-            <!-- 投稿フォーム -->
-            <form method="POST" action="/Posts/create" class="post-form">
-                <div class="post-form-name">
-                    <h4>名前</h4>
-                    <input type="text" id="name" name="name" class="post-form-name-input" placeholder="あなたの名前を入力してください。" maxlength="30" required>
-                </div>
-                <div class="post-form-message">
-                    <h4>投稿文</h4>
-                    <textarea id="message" name="message" class="post-form-message-text" placeholder="投稿内容をここに入力してください。" maxlength="140" required></textarea>
-                </div>
+        <div class="post-form-toggle-wrapper">
+            <button type="button" onclick="togglePostForm()" class="post-form-toggle-button">
+                📮 投稿する
+            </button>
+        </div>
 
-                <div class="post-form-submit">
-                    <button type="submit" class="post-form-submit-button">投稿</button>
-                </div>
-            </form>
+            <!-- 投稿フォーム -->
+            <div id="postFormWrapper" style="display: none;">
+                <form method="POST" action="/Posts/create" class="post-form">
+                    <div class="post-form-name">
+                        <h4>名前</h4>
+                        <input type="text" id="name" name="name" class="post-form-name-input" placeholder="あなたの名前を入力してください。" maxlength="30" required>
+                    </div>
+                    <div class="post-form-message">
+                        <h4>投稿文</h4>
+                        <textarea id="message" name="message" class="post-form-message-text" placeholder="投稿内容をここに入力してください。" maxlength="140" required></textarea>
+                    </div>
+
+                    <div class="post-form-submit">
+                        <button type="submit" class="post-form-submit-button">投稿</button>
+                    </div>
+                </form>
+            </div>
             <hr>
             <!-- 投稿一覧 -->
             <div class="posts">
