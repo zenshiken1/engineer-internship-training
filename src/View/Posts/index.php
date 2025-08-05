@@ -54,6 +54,8 @@
             // 切り替え用
             $nextCreatedOrder = ($sort === 'created_at' && $order === 'ASC') ? 'DESC' : 'ASC';
             $nextNameOrder = ($sort === 'name' && $order === 'ASC') ? 'DESC' : 'ASC';
+            $nextUpdatedAtOrder = ($sort === 'updated_at' && $order === 'ASC') ? 'DESC' : 'ASC';
+            $nextMessageOrder = ($sort === 'message' && $order === 'ASC') ? 'DESC' : 'ASC';
             ?>
 
             <div style="text-align: right; margin-bottom: 10px;">
@@ -63,11 +65,11 @@
                 <a href="/?sort=name&order=<?= $nextNameOrder ?>" class="btn btn-outline-success">
                     <?= ($sort === 'name' && $order === 'ASC') ? '↓ 名前（降順）' : '↑ 名前（昇順）' ?>
                 </a>
-                <a href="/?sort=name&order=<?= $nextNameOrder ?>" class="btn btn-outline-success">
+                <a href="/?sort=updated_at&order=<?= $nextUpdatedAtOrder ?>" class="btn btn-outline-primary">
                     <?= ($sort === 'updated_at' && $order === 'ASC') ? '↓ 更新順（降順）' : '↑ 更新順（昇順）' ?>
                 </a>
-                <a href="/?sort=name&order=<?= $nextNameOrder ?>" class="btn btn-outline-success">
-                    <?= ($sort === 'message' && $order === 'ASC') ? '↓ 文章のアルファベット順（降順）' : '↑ 更新順（昇順）' ?>
+                <a href="/?sort=message&order=<?= $nextMessageOrder ?>" class="btn btn-outline-success">
+                    <?= ($sort === 'message' && $order === 'ASC') ? '↓ 文章のアルファベット順（降順）' : '↑ 文章のアルファベット順（昇順）' ?>
                 </a>
             </div>
                 <?php if ($this->get('posts')) : ?>
@@ -79,9 +81,11 @@
                                 <img src="/imgs/egg_purple.png" class="post-image" alt="egg_icon">
                             </div>
                             <div class="post-info" data-id="<?=$post['id']?>">
-                                名前<input type="text" class="post-name post-not-edit-input" value="<?=$post['name']?>" readonly>
-                                <input type="text" class="post-time post-not-edit-input" value="<?=$post['created_at']?>" readonly>
-                                <input type="text" class="post-time post-not-edit-input" value="<?=$post['updated_at']?>" readonly>
+                                <input type="text" class="post-name post-not-edit-input" value="<?=$post['name']?>" readonly>
+                                <div style="text-align: right; white-space: nowrap; font-size: 0.9em; color: gray;">
+                                    <span>投稿：<?= $post['created_at'] ?></span>&nbsp;
+                                    <span>更新：<?= $post['updated_at'] ?></span>
+                                </div>
                                 <br>
                                 <textarea class="post-text post-not-edit-textarea" readonly><?=$post['message']?></textarea>
 

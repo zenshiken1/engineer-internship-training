@@ -36,7 +36,7 @@ class ServerRequest
     public function getQuery(?string $key = null)
     {
         if ($key) {
-            return $this->_query[$key];
+            return $this->_query[$key] ?? null;
         }
 
         return $this->_query;

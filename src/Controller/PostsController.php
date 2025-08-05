@@ -82,8 +82,8 @@ class PostsController extends AppController
     public function delete(): void
     {
         // TODO: 応用課題:投稿削除機能実装時に消す
-        echo 'この機能は未完成です';
-        return;
+        //echo 'この機能は未完成です';
+        //return;
 
         $id = (int)$this->request->getData('id');
 

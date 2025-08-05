@@ -46,6 +46,9 @@ class Post
     {
         // 未実装
         // 応用課題:投稿削除機能
+        $pdo = $this->dbConnect();
+        $query = "DELETE FROM `posts`  WHERE id = $id;";
+        $pdo->query($query);
     }
 
     /**
@@ -62,11 +65,11 @@ class Post
             $sql = "SELECT id, name, message, created_at,updated_at
                     FROM posts
                     ORDER BY name $order, created_at DESC";
-        } if ($sort === 'updated_at') {
+        } else if ($sort === 'updated_at') {
             $sql = "SELECT id, name, message, created_at,updated_at
                     FROM posts
                     ORDER BY updated_at $order, created_at DESC";
-        } if ($sort === 'message') {
+        } else if ($sort === 'message') {
             $sql = "SELECT id, name, message, created_at,updated_at
                     FROM posts
                     ORDER BY message $order, created_at DESC";
